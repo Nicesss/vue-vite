@@ -1,2 +1,5 @@
-# vue-vite
-Vue3 + Vite@4 搭建简单项目框架
+# Vue 3 + Vite
+
+pnpm install
+
+pnpm dev
