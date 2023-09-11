@@ -24,6 +24,7 @@ export default defineConfig({
         cors: true,
         // 自定义代理规则
         proxy: {},
+        // hmr: { overlay: false }
     },
     build: {
         // // 设置最终构建的浏览器兼容目标

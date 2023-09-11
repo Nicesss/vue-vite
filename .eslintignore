@@ -1,0 +1,10 @@
+*.yaml
+.vscode
+.idea
+node_modules
+dist
+public
+
+!.build
+.build/*
+!.build/test.js
