@@ -1,7 +1,13 @@
 <template>
-  <div>page-a</div>
+    <div>page-a</div>
 </template>
 
-<script></script>
+<script>
+export default {
 
-<style></style>
+}
+</script>
+
+<style>
+
+</style>

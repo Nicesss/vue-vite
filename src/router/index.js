@@ -1,35 +1,34 @@
-import { createRouter, createWebHashHistory } from 'vue-router'
+import { createRouter, createWebHistory } from 'vue-router'
 
 const routes = [
-    { path: '', redirect: '/page-a' },
     {
-        path: '/page-a',
-        name: 'page-a',
-        component: () => import('@/pages/page-a/index.vue')
+        path: '/',
+        children: [
+            { path: '/', redirect: '/page-a' },
+            {
+                path: '/page-a',
+                name: 'page-a',
+                component: () => import('@/pages/page-a/index.vue')
+            },
+            {
+                path: '/page-b',
+                name: 'page-b',
+                component: () => import('@/pages/page-b/index.vue')
+            },
+        ]
     },
     {
-        path: '/page-b',
-        name: 'page-b',
-        component: () => import('@/pages/page-b/index.vue')
-    },
-    {
-        // vue-router@4的变化，舍弃*通配符
-        path: '/:pathMatch(.*)*',
+        path: '/:catchAll(.*)*',
         name: '404',
         component: () => import('@/pages/404/index.vue')
     }
 ]
 
 const router = createRouter({
-    history: createWebHashHistory(),
+    history: createWebHistory('vueApp/'),
     routes,
-    scrollBehavior() {
-        return {
-            el: '#app',
-            top: 0,
-            behavior: 'smooth',
-        };
-    },
+    // 控制路由切换时滚动行为的配置选项
+    // scrollBehavior(to, from, savedPosition) { }
 })
 
 export default router
